@@ -341,9 +341,7 @@ struct HabitCard: View {
     @State private var isHovering = false
 
     var body: some View {
-        VStack(spacing: 0) {
-            // Main content
-            VStack(spacing: 18) {
+        VStack(spacing: 18) {
                 // Top row: checkbox, name, delete
                 HStack(spacing: 16) {
                     // Checkmark button
@@ -539,37 +537,23 @@ struct HabitCard: View {
             }
             .padding(22)
             .background(
-                ZStack {
-                    RoundedRectangle(cornerRadius: 18)
-                        .fill(Color.white.opacity(0.03))
-
-                    RoundedRectangle(cornerRadius: 18)
-                        .strokeBorder(
-                            LinearGradient(
-                                colors: habit.isCompletedToday ?
-                                    [Color(red: 0.5, green: 0.9, blue: 0.3).opacity(0.5), Color(red: 0.5, green: 0.9, blue: 0.3).opacity(0.1)] :
-                                    [Color.white.opacity(0.15), Color.white.opacity(0.05)],
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            ),
-                            lineWidth: 1.5
-                        )
-
-                    // Top highlight
-                    RoundedRectangle(cornerRadius: 18)
-                        .fill(
-                            LinearGradient(
-                                colors: [Color.white.opacity(0.1), Color.clear],
-                                startPoint: .top,
-                                endPoint: .bottom
+                RoundedRectangle(cornerRadius: 18)
+                    .fill(Color.white.opacity(0.03))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 18)
+                            .strokeBorder(
+                                LinearGradient(
+                                    colors: habit.isCompletedToday ?
+                                        [Color(red: 0.5, green: 0.9, blue: 0.3).opacity(0.5), Color(red: 0.5, green: 0.9, blue: 0.3).opacity(0.1)] :
+                                        [Color.white.opacity(0.15), Color.white.opacity(0.05)],
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                ),
+                                lineWidth: 1.5
                             )
-                        )
-                        .frame(height: 2)
-                        .offset(y: -1)
-                }
+                    )
             )
             .shadow(color: habit.isCompletedToday ? Color(red: 0.5, green: 0.9, blue: 0.3).opacity(0.2) : Color.black.opacity(0.3), radius: 16, x: 0, y: 8)
-        }
         .onHover { hovering in
             isHovering = hovering
         }
@@ -610,7 +594,6 @@ struct MiniHeatMap: View {
                                 )
                             )
                             .frame(width: cellSize, height: cellSize)
-                            .shadow(color: Color(red: 0.5, green: 0.9, blue: 0.3).opacity(0.4), radius: 2, x: 0, y: 1)
                     } else {
                         RoundedRectangle(cornerRadius: 3)
                             .fill(Color.white.opacity(0.08))

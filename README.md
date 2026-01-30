@@ -1,6 +1,6 @@
 # habit tracker
 
-yo this is a lil macOS menu bar app i made for tracking habits. it's got those github-style heat maps and looks pretty clean imo
+This is a lil macOS menu bar app i made for tracking habits. 
 
 ## what it does
 
@@ -11,11 +11,11 @@ basically you can track your daily habits and see how you're doing over time. go
 - shows stats at the top
 - all your data stays on your computer, nowhere else
 - click "VIEW DETAILS" to see the full calendar
-- smooth animations that are kinda satisfying ngl
+- smooth animations that are kinda satisfying 
 
 ## how to run it
 
-### if you wanna actually use it:
+### if you wanna  use it:
 
 ```bash
 cd ~/Desktop/HabitTracker
@@ -49,12 +49,3 @@ the heat map shows green squares for days you did the habit, gray for days you d
 everything's stored locally in `~/Library/Preferences/com.habittracker.app.plist`
 
 it doesn't go anywhere else, promise
-
-## wanna customize it?
-
-go for it! you can change:
-- window size in `HabitTrackerApp.swift:38`
-- colors in `ContentView.swift`
-- menu bar icon in `HabitTrackerApp.swift:29`
-
-feel free to fork it and make it your own

@@ -1,23 +1,21 @@
-# Habit Tracker - macOS Menu Bar App
+# habit tracker
 
-A beautiful native macOS menu bar application for tracking daily habits with visual progress heat maps.
+yo this is a lil macOS menu bar app i made for tracking habits. it's got those github-style heat maps and looks pretty clean imo
 
-## Features
+## what it does
 
-- 🎨 **Modern UI** - Beautiful gradient design with smooth animations
-- 📊 **Heat Map Visualization** - GitHub-style activity calendar for each habit
-- 🔥 **Streak Tracking** - Current and longest streak monitoring
-- 📈 **Statistics Dashboard** - Real-time completion rates and total streaks
-- ⚡ **Quick Access** - Lives in your menu bar for instant access
-- 💾 **Local Storage** - All data stored securely on your Mac
-- 🎯 **Expandable Cards** - Click the chart icon to view detailed progress
-- ✨ **Smooth Animations** - Satisfying visual feedback for every action
+basically you can track your daily habits and see how you're doing over time. got some nice gradients and animations to make it feel good to use. lives in your menu bar so it's always there when you need it.
 
-## How to Install & Run
+- heat maps that show your progress (green = you did the thing)
+- tracks your streaks so you can feel good about consistency
+- shows stats at the top
+- all your data stays on your computer, nowhere else
+- click "VIEW DETAILS" to see the full calendar
+- smooth animations that are kinda satisfying ngl
 
-### 🎯 Permanent Installation (Recommended)
+## how to run it
 
-Build and install as a standalone app:
+### if you wanna actually use it:
 
 ```bash
 cd ~/Desktop/HabitTracker
@@ -26,68 +24,37 @@ cp -r ./build/Build/Products/Release/HabitTracker.app /Applications/
 open /Applications/HabitTracker.app
 ```
 
-See [INSTALL.md](INSTALL.md) for detailed installation instructions, including:
-- Auto-start at login setup
-- Troubleshooting
-- Uninstalling
+check out [INSTALL.md](INSTALL.md) if you want it to start automatically when you login or if something breaks
 
-### 🚀 Quick Test Run
-
-For testing during development:
+### just testing it out:
 
 ```bash
 cd ~/Desktop/HabitTracker
 ./run.sh
 ```
 
-This runs the app from Terminal without installing it.
+## using it
 
-## How to Use
+pretty straightforward:
+1. click the checkmark in your menu bar to open it
+2. hit the + button to add a habit
+3. click the circle to mark a habit done for today
+4. click VIEW DETAILS to see your full history
+5. hit the X to delete habits (it'll ask you to confirm so you don't accidentally delete stuff)
 
-### Basic Usage
-1. **Open the app** - Click the checkmark icon in your menu bar
-2. **Add a habit** - Click the "+" button and enter your habit name
-3. **Complete habits** - Click the circle next to a habit to mark it complete for today
-4. **View progress** - Click the chart icon on any habit to see your heat map
-5. **Delete habits** - Click the trash icon to remove a habit (with confirmation)
+the heat map shows green squares for days you did the habit, gray for days you didn't. the blue outline is today. hover over squares to see the exact date.
 
-### Understanding the Heat Map
-- **Green squares** = Days you completed the habit
-- **Gray squares** = Days you didn't complete it
-- **Blue outline** = Today
-- **Light gray** = Future days
-- **12 weeks** of history are shown in a calendar grid
-- Hover over any day to see the date and status
+## where's my data?
 
-### Stats Dashboard
-The top bar shows:
-- **Today**: Completed habits out of total
-- **Total Streak**: Sum of all current streaks
-- **Rate**: Overall completion percentage for today
+everything's stored locally in `~/Library/Preferences/com.habittracker.app.plist`
 
-## Data Storage
+it doesn't go anywhere else, promise
 
-All habit data is stored locally using UserDefaults in:
-```
-~/Library/Preferences/com.habittracker.app.plist
-```
+## wanna customize it?
 
-Your data never leaves your computer.
+go for it! you can change:
+- window size in `HabitTrackerApp.swift:38`
+- colors in `ContentView.swift`
+- menu bar icon in `HabitTrackerApp.swift:29`
 
-## Customization
-
-Feel free to modify:
-- Window size: Change `contentSize` in HabitTrackerApp.swift:38
-- Colors: Adjust colors in ContentView.swift
-- Menu bar icon: Change the symbol name in HabitTrackerApp.swift:29
-
-## Building for Distribution
-
-To create a standalone .app:
-
-1. In Xcode, select Product → Archive
-2. Click "Distribute App"
-3. Choose "Copy App"
-4. The .app file can be moved to /Applications
-
-Enjoy tracking your habits! 🎯
+feel free to fork it and make it your own
